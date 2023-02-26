@@ -1,12 +1,12 @@
 pipeline{
     agent any
     environment {
-        PATH = "$PATH:/opt/apache-maven-3.8.2/bin"
-    }
+        PATH ="$PATH c:\Program Files\apache-maven-3.9.0"
+  }
     stages{
        stage('GetCode'){
             steps{
-                git 'https://github.com/ravdy/javaloginapp.git'
+                git c:\Program Files\git
             }
          }        
        stage('Build'){
@@ -15,7 +15,7 @@ pipeline{
             }
          }
         stage('SonarQube analysis') {
-//    def scannerHome = tool 'SonarScanner 4.0';
+//    def scannerHome = tool 'sonarscanner4.0';
         steps{
         withSonarQubeEnv('sonarqube-8.9') { 
         // If you have configured more than one global server connection, you can specify its name
